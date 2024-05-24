@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
       appBar:AppBar(
         backgroundColor: const Color(0xFF05046a),
         title: const Text("Registrar Staffs", style: TextStyle(color: Colors.white),),
-        leading: Image.asset('assets/logo.jpg'),
+        leading: Image.asset('assets/TRAX logo.jpg'),
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -70,6 +70,8 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Text('WINDOW ${index + 1}',style: const TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 10),
                         const CircleAvatar(
                           radius: 30,
                           backgroundImage: AssetImage('assets/profile_image.jpg'),
@@ -79,7 +81,6 @@ class _HomePageState extends State<HomePage> {
                           staffNames[index],
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        Text('Window ${index + 1}'),
                         Text('Status: ${status[index]}',style: TextStyle(color: color)),
                       ],
                     ),
