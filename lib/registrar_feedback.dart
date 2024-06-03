@@ -117,7 +117,13 @@ class _RegistrarFeedbackState extends State<RegistrarFeedback> {
               const SizedBox(height: 16),
               Center(child: ElevatedButton(
                 onPressed: () {
-                  if (_formKey.currentState!.validate() && _window != 3) {
+                  const snackBar = SnackBar(
+                    content: Text('Please Enter Rating'),
+                    backgroundColor: Colors.red,
+                    duration: Duration(seconds: 2),
+                  );
+                  if (_rating == 0){ScaffoldMessenger.of(context).showSnackBar(snackBar);}
+                  if (_formKey.currentState!.validate() && _rating != 0 && _window != 3) {
                     _formKey.currentState!.save();
                     Navigator.pushReplacement(
                       context,
