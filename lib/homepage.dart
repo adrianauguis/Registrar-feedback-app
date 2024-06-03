@@ -19,12 +19,20 @@ class _HomePageState extends State<HomePage> {
     'Ms. Carel S. Bustamante'
   ];
   List<String> status = [
+    'Unavailable',
     'Available',
     'Available',
     'Available',
     'Available',
-    'Available',
-    'Unavailable'
+    'Available'
+  ];
+  List<String> queue = [
+    'W1001',
+    'W2001',
+    'W3001',
+    'W4001',
+    'W5001',
+    'W6001'
   ];
   MaterialColor color = Colors.green;
   @override
@@ -46,7 +54,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisCount: 2,
           children: List.generate(
             6, (index) {
-              if (status[index] == "Available"){color = Colors.green;}else{ color = Colors.red;}
+              if (status[index] == "Available"){color = Colors.green;}else{color = Colors.red; queue[index]='';}
               return GestureDetector(
                 onTap: (){
                   const snackBar = SnackBar(
@@ -82,6 +90,7 @@ class _HomePageState extends State<HomePage> {
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text('Status: ${status[index]}',style: TextStyle(color: color)),
+                        Text('Serving: ${queue[index]}',style: const TextStyle(fontWeight: FontWeight.bold),),
                       ],
                     ),
                   ),
